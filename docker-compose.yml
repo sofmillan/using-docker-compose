@@ -1,0 +1,13 @@
+version: '3' #version of docker compose
+#a service is a type of container, we are defining two services that take the form of docker containers
+services:
+  redis-server: 
+    image: 'redis'
+  node-app:
+    restart: on-failure
+    build: . #use this dockerfile
+    ports:
+      - "4001:8081"
+
+
+#By using docker compose to create container one and two, the two have free access to each other and can exchange information
